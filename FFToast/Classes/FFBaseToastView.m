@@ -393,17 +393,23 @@ static NSMutableArray* toastArray = nil;
         UIWindow *windowView = [UIApplication sharedApplication].keyWindow;
         [windowView addSubview:self];
         
-        [UIView animateWithDuration:0.5f
-                              delay:0.f
-             usingSpringWithDamping:0.7f
-              initialSpringVelocity:0.5f
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             self.frame = _toastViewFrame;
-                             self.alpha = _toastAlpha;
-                         } completion:^(BOOL finished) {
-                             
-                         }];
+//        [UIView animateWithDuration:0.5f
+//                              delay:0.f
+//             usingSpringWithDamping:0.7f
+//              initialSpringVelocity:0.5f
+//                            options:UIViewAnimationOptionCurveEaseIn
+//                         animations:^{
+//                             self.frame = _toastViewFrame;
+//                             self.alpha = _toastAlpha;
+//                         } completion:^(BOOL finished) {
+//
+//                         }];
+        [UIView animateWithDuration:0.2f delay:0.f options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self.frame = _toastViewFrame;
+            self.alpha = _toastAlpha;
+        } completion:^(BOOL finished) {
+            
+        }];
         
         [toastArray addObject:self];
         [self performSelector:@selector(dismiss) withObject:nil afterDelay:_duration];
